@@ -2,7 +2,6 @@
 function Get-AzMigratePhysicalDiscoveredServer {
     [CmdletBinding()]
     param (
-        # Parameter help description
         [Parameter(Mandatory)]
         $ResourceGroupName,
 
@@ -39,7 +38,7 @@ function Get-AzMigratePhysicalDiscoveredServer {
 
     $discoveredMachines = @()
     foreach ($machine in $response.value) {
-        $discoveredMachines += [PSCustomObject]@{
+        $discoveredMachines += [DiscoveredServer]@{
             Id = $machine.Id
             Name = $machine.Name
             OsType = $machine.properties.discoveryData.OsType
