@@ -17,6 +17,7 @@ $newReplicationParams = @{
     TargetSubscriptionId = (Get-AzContext).Subscription.Id
     TargetResourceGroup = 'rg-azMigrate-testMigration-01'
     TargetStorageAccount = 'sttestmigration01'
+    TargetStorageAccountResourceGroup = 'rg-azMigrate-testMigration-01'
     TargetVnet = 'vnet-azMigrate-testMigration-01'
     TargetSubnet = 'default'
     TargetLicenseType = "WindowsServer"

@@ -1,6 +1,7 @@
 param targetSubscriptionID string
 param targetResourceGroup string
 param targetStorageAccount string
+param targetStorageAccountResourceGroup string
 param azMigrateResourceGroup string
 param azMigrateVault string
 param azMigrateReplicationFabric string
@@ -17,7 +18,7 @@ param disksToInclude array
 param licenseType string = 'WindowsServer'
 
 param policyId string
-param logStorageAccountId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${targetResourceGroup}/providers/Microsoft.Storage/storageAccounts/${targetStorageAccount}'
+param logStorageAccountId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${targetStorageAccountResourceGroup}/providers/Microsoft.Storage/storageAccounts/${targetStorageAccount}'
 param targetAzureNetworkId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${targetResourceGroup}/providers/Microsoft.Network/virtualNetworks/${targetVnet}'
 param targetAzureV2ResourceGroupId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${targetResourceGroup}'
 param protectableItemId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${azMigrateResourceGroup}/providers/Microsoft.RecoveryServices/vaults/${azMigrateVault}/replicationFabrics/${azMigrateReplicationFabric}/replicationProtectionContainers/${azMigrateReplicationProtectionContainer}/replicationProtectableItems/${azMigrateReplicationProtectableItem}'
