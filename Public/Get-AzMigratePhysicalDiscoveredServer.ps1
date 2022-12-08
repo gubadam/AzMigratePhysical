@@ -6,7 +6,7 @@ function Get-AzMigratePhysicalDiscoveredServer {
         $ResourceGroupName,
 
         [Parameter(Mandatory)]
-        $MigrateProject,
+        $ProjectName,
 
         $SubscriptionId = (Get-AzContext).Subscription.Id,
 
@@ -19,7 +19,7 @@ function Get-AzMigratePhysicalDiscoveredServer {
     "subscriptions/$SubscriptionId/" +
     "resourceGroups/$ResourceGroupName/" + 
     "providers/Microsoft.Migrate/" +
-    "MigrateProjects/$MigrateProject" +
+    "MigrateProjects/$ProjectName" +
     "/machines?api-version=2020-06-01-preview&pageSize=9999&`$" +
     "filter=" +
     "(" +
