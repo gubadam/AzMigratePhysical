@@ -3,7 +3,6 @@ param targetResourceGroup string
 param targetStorageAccount string
 param azMigrateResourceGroup string
 param azMigrateVault string
-param azMigrateReplicationPolicy string
 param azMigrateReplicationFabric string
 param azMigrateReplicationProtectionContainer string
 param azMigrateReplicationProtectableItem string
@@ -17,16 +16,11 @@ param disksToInclude array
 @allowed(['WindowsServer'])
 param licenseType string = 'WindowsServer'
 
-param policyId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${azMigrateResourceGroup}/providers/Microsoft.RecoveryServices/vaults/${azMigrateVault}/replicationPolicies/${azMigrateReplicationPolicy}'
+param policyId string
 param logStorageAccountId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${targetResourceGroup}/providers/Microsoft.Storage/storageAccounts/${targetStorageAccount}'
 param targetAzureNetworkId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${targetResourceGroup}/providers/Microsoft.Network/virtualNetworks/${targetVnet}'
 param targetAzureV2ResourceGroupId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${targetResourceGroup}'
 param protectableItemId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${azMigrateResourceGroup}/providers/Microsoft.RecoveryServices/vaults/${azMigrateVault}/replicationFabrics/${azMigrateReplicationFabric}/replicationProtectionContainers/${azMigrateReplicationProtectionContainer}/replicationProtectableItems/${azMigrateReplicationProtectableItem}'
-
-
-
-// change to standard SSD
-
 
 resource ReplicationProtectableItem 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems@2022-05-01' = {
   name: '${azMigrateVault}/${azMigrateReplicationFabric}/${azMigrateReplicationProtectionContainer}/${azMigrateReplicationProtectableItem}'
