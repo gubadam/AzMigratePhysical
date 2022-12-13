@@ -6,6 +6,7 @@ function New-AzMigratePhysicalServerReplication {
         $TargetStorageAccount,
         $TargetStorageAccountResourceGroup,
         $TargetVnet,
+        $TargetVnetResourceGroup,
         $TargetSubnet,
         $TargetLicenseType = "WindowsServer",
         $SubscriptionId = (Get-AzContext).Subscription.Id,
@@ -51,7 +52,7 @@ function New-AzMigratePhysicalServerReplication {
         targetAzureSubnetId = $TargetSubnet
         policyId = $replicatioContainerMapping.properties.policyId
         logStorageAccountId = "/subscriptions/${targetSubscriptionID}/resourceGroups/$TargetStorageAccountResourceGroup/providers/Microsoft.Storage/storageAccounts/${targetStorageAccount}"
-        targetAzureNetworkId = "/subscriptions/${targetSubscriptionID}/resourceGroups/${targetResourceGroup}/providers/Microsoft.Network/virtualNetworks/${targetVnet}"
+        targetAzureNetworkId = "/subscriptions/${targetSubscriptionID}/resourceGroups/${targetVnetResourceGroup}/providers/Microsoft.Network/virtualNetworks/${targetVnet}"
         targetAzureV2ResourceGroupId = "/subscriptions/${targetSubscriptionID}/resourceGroups/${targetResourceGroup}"
         protectableItemId = $replicationProtectableItem.Id
         disksToInclude = @()

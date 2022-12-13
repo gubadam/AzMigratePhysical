@@ -8,6 +8,7 @@ param azMigrateReplicationFabric string
 param azMigrateReplicationProtectionContainer string
 param azMigrateReplicationProtectableItem string
 param targetVnet string
+param targetVnetResourceGroup string
 param targetAzureVmName string
 param masterTargetId string
 param targetAzureSubnetId string
@@ -19,7 +20,7 @@ param licenseType string = 'WindowsServer'
 
 param policyId string
 param logStorageAccountId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${targetStorageAccountResourceGroup}/providers/Microsoft.Storage/storageAccounts/${targetStorageAccount}'
-param targetAzureNetworkId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${targetResourceGroup}/providers/Microsoft.Network/virtualNetworks/${targetVnet}'
+param targetAzureNetworkId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${targetVnetResourceGroup}/providers/Microsoft.Network/virtualNetworks/${targetVnet}'
 param targetAzureV2ResourceGroupId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${targetResourceGroup}'
 param protectableItemId string = '/subscriptions/${targetSubscriptionID}/resourceGroups/${azMigrateResourceGroup}/providers/Microsoft.RecoveryServices/vaults/${azMigrateVault}/replicationFabrics/${azMigrateReplicationFabric}/replicationProtectionContainers/${azMigrateReplicationProtectionContainer}/replicationProtectableItems/${azMigrateReplicationProtectableItem}'
 
